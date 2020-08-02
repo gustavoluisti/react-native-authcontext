@@ -3,9 +3,10 @@ import {View, Button, StyleSheet} from 'react-native';
 import AuthContext from '../../contexts/auth';
 
 const SignIn: React.FC = () => {
-  const {signed, signin} = React.useContext(AuthContext);
+  const {signed, user, signin} = React.useContext(AuthContext);
 
   console.log(signed);
+  console.log(user);
   function handleSignIn() {
     signin();
   }
