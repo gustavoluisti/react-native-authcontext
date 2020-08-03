@@ -23,7 +23,10 @@ export const AuthProvider: React.FC = ({children}) => {
       const storageToken = await AsyncStorage.getItem('@RNAuth:token');
 
       if (storagedUser && storageToken) {
+        api.defaults.headers['Authorization'] = `Bearer ${storageToken}`;
+
         setUser(JSON.parse(storagedUser));
+        setLoading(false);
       }
     }
     loadStoragedData();
